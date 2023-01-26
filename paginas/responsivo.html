@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* Dispositivos pequeños (teléfonos, 600px y menos) */ 
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: green;
+  }
+  div {
+    font-size: 0.8em
+  }
+}
+
+/* Dispositivos pequeños (tabletas verticales y teléfonos
+largos, 600px y más) */
+@media only screen and (min-width: 600px) {
+  body {
+    background-color: red;
+  }
+  div {
+    font-size: 1em
+  }
+}
+
+/* Dispositivos medios (tablets horizontales, 768px y más) */ 
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: orange;
+  }
+  div {
+    font-size: 1.1em
+  }
+}
+
+/* Dispositivos largos (laptops/escritorio, 992px y más) */ 
+@media only screen and (min-width: 992px) {
+  body {
+    background-color: yellow;
+  }
+  div {
+    font-size: 1.2em
+  }
+}
+
+/* Dispositivos extra largos (grandes laptops and equipos
+escritorio, 1200px y arriba) */
+@media only screen and (min-width: 1200px) {
+  body {
+    background-color: blue;
+  }
+  div {
+    font-size: 1.4em
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div>TITULO</div>
+</body>
+</html>

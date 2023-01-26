@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .current {
+      color: red;
+    }
+    .ubicacion  {
+      font-size: 34px;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form name="hola" id="formulario" method="POST">
+    <input type="text" required value="" name="first_name" id="first_name" placeholder="First name">
+    <input type="text" required value="" name="middle_name" id="middle_name" placeholder="First name">
+    <input type="text" value="" name="last_name" id="last_name" placeholder="First name">
+
+    <select name="" id="">
+      <option value="1">Uno</option>
+      <option value="2">Dos</option>
+      <option value="3">Tres</option>
+      <option value="4">Cuatro</option>
+      <option value="5">Cinco</option>
+    </select>
+
+    <button type="submit" id="boton">Enviar</button>
+  </form>
+
+  <div class="uno" info-profe="Hola" style="visibility:visible;">Estoy escondido</div>
+
+  <div class="ubicacion">
+
+  </div>
+
+  <ul id="miLista">
+    <li>Valor 1</li>
+    <li>Valor 2</li>
+    <li class="current">Valor <b>---> </b>3</li>
+    <li>Valor 4</li>
+    <li>Valor 5</li>
+  </ul>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#first_name").val("Hola mundo");
+    console.log($("ul li").filter(".current").text());
+    $("#miLista li").each(function (indice, elemento) {
+      console.log(indice, $(elemento).html());
+    });
+    $("input").focusin(function () {
+      $(this).css("background-color", "yellow");
+    });
+    $("input").focusout(function () {
+      $(this).css("background-color", "#ffffff");
+    });
+    $("#formulario").submit(function() {
+      if ($("#first_name").val() == "" ||
+        $("#middle_name").val() == "" ||
+        $("#last_name").val() == "") {
+        alert("Todos los campos son obligatorios");
+        return false;
+      }
+      return true;
+    });
+    $(document).mousemove(function(evento) {
+      $(".ubicacion").html("X: " + evento.pageX + " Y: " + evento.pageY);
+    });
+
+  });
+</script>
+
+</html>

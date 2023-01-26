@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+  <style>
+    #hora {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 72px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="hora">00:00</div>
+
+  <script>
+
+    function cambiarHora()  {
+      const tiempo = new Date()
+      const hora =  tiempo.getHours() < 10 ? "0" + tiempo.getHours() : tiempo.getHours()
+      const minuto = tiempo.getMinutes() < 10 ? "0" + tiempo.getMinutes() : tiempo.getMinutes()
+      const segundo = tiempo.getSeconds() < 10 ? "0" + tiempo.getSeconds() : tiempo.getSeconds()
+      document.getElementById("hora").innerHTML = hora + ":" + minuto + ":" + segundo
+    }
+
+
+    setInterval(() => {
+      cambiarHora()
+    }, 1000);
+
+  </script>
+</body>
+</html>

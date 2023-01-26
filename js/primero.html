@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .marco {
+        border: 1px solid red;
+        height: 300px;
+        width: 300px;
+      }
+    </style>
+    <script>
+      const persona = {
+        nombre: "José",
+        apellido: "Pérez",
+        edad: 15,
+        direccion: {
+          calle: "Calle falsa",
+          numero: 123
+        }
+      }
+      function nombre() {
+        document.getElementById("contenido").innerHTML = persona.direccion.calle + " " + persona.direccion.numero;
+      }
+      function edad() {
+        // let esMayorEdad = null
+        // if (persona.edad >= 18) {
+        //   esMayorEdad = "Mayor de edad";
+        // } else {
+        //   esMayorEdad = "Menor de edad";
+        // }
+        document.getElementById("contenido").innerHTML = persona.edad >= 18 ? "Mayor de edad" : "Menor de edad";
+      }
+      function holamundo()  {
+        // alert("Hola mundo");
+        document.getElementById("saludo").innerHTML = "<span style='color: red'>Hola mundo</span>";
+      }
+      function nodos()  {
+        let parrafo = document.createElement("p");
+        parrafo.innerHTML = "Este <b>es</b> un párrafo";
+        document.getElementById("contenido").appendChild(parrafo);
+      }
+      function agregarTitulo()  {
+        let titulo = document.createElement("h2");
+        titulo.innerHTML = "Este es un título";
+        let contenedor = document.getElementById("saludo");
+        contenedor.parentNode.insertBefore(titulo, document.getElementById("saludo"));
+      }
+      const contar = function(inicio, termino)  {
+        // let contador = inicio;
+        // let contenido = document.getElementById("contenido");
+        // while (contador <= termino) {
+        //   const elemento = document.createElement("p");
+        //   elemento.innerText = contador;
+        //   contenido.appendChild(elemento);
+        //   contador++;
+        // }
+        let contenido = document.getElementById("contenido");
+        for (let contador = inicio; contador <= termino; contador++)  {
+           const elemento = document.createElement("p");
+           elemento.innerText = contador;
+          //  elemento.style.backgroundColor = "red";
+           contenido.appendChild(elemento);          
+        }
+      }
+      function destacar(color) {
+        document.getElementById("marco").style.backgroundColor = color
+        document.getElementById("marco").style.fontSize = "5em"
+      }
+      function des_destacar() {
+        document.getElementById("marco").style.backgroundColor = "transparent"
+        document.getElementById("marco").style.fontSize = "1em"
+      }
+      function cambio() {
+        if (document.getElementById("texto").value == "abc")  {
+          alert("El valor es abcedario");
+        } else {
+          alert("El valor no es abcedario");
+        }
+      }
+    </script>
+  </head>
+  <body id="idOne">
+    <button onclick="holamundo()" onmouseover="destacar('red')" onmouseout="des_destacar()">Hola mundo</button>
+    <button onclick="nodos()" onmouseover="destacar('yellow')" onmouseout="des_destacar()">Nodos</button>
+    <button onclick="agregarTitulo()" onmouseover="destacar('gray')" onmouseout="des_destacar()">Agregar Título</button>
+    <button onclick="nombre()" onmouseover="destacar('green')" onmouseout="des_destacar()">Cuál es tu nombre?</button>
+    <button onclick="edad()">Edad?</button>
+    <button onclick="contar(1, 10)">Contar</button>
+    <div>
+      <h1 id="saludo"></h1>
+      <div id="contenido"></div>
+    </div>
+    <div id="marco" class="marco">
+      hola
+    </div>
+    <input id="texto" type="text" maxlength="20" onchange="cambio()" />
+  </body>
+</html>
