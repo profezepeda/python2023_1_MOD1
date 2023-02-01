@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    .hovercol:hover {
+      background-color: pink;
+    }
+    .imgbackground {
+      min-height: 300px;
+      background-image: url(../images/agua.png), url(https://picsum.photos/200/300);
+    }
+  </style>
+  <script>
+    function sumar()  {
+      let lista = document.getElementById("lista");
+      let suma = parseInt(document.getElementById("numero1").value);
+      suma += parseInt(document.getElementById("numero2").value);
+      nuevoElemento = document.createElement("p");
+      nuevoElemento.innerHTML = suma;
+      lista.appendChild(nuevoElemento);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">Columna 1</div>
+      <div class="col-4 hovercol">Columna 2</div>
+      <div class="col-4">Columna 3</div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <input type="number" id="numero1" style="width: 100%">
+        <input type="number" id="numero2" style="width: 100%">
+        <button class="btn btn-primary" onclick="sumar()">Sumar</button>
+      </div>
+      <div class="col-4" id="lista">
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
